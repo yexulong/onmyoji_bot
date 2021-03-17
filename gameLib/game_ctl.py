@@ -201,6 +201,7 @@ class GameControl():
             res = cv2.matchTemplate(
                 img_src, img_template, cv2.TM_CCOEFF_NORMED)
             minVal, maxVal, minLoc, maxLoc = cv2.minMaxLoc(res)
+            maxLoc = (int(maxLoc[0] + template_w/2), int(maxLoc[1] + template_h/2))  # 计算中心坐标
             # print(maxLoc)
             return maxVal, maxLoc
         except Exception:
