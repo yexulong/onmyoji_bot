@@ -196,7 +196,7 @@ class GameControl():
             img_template = cv2.imread(img_template_path, cv2.IMREAD_COLOR)
         else:
             img_template = cv2.imread(img_template_path, cv2.IMREAD_GRAYSCALE)
-
+        template_h, template_w, _ = img_template.shape  # 模板图片的高度、长度
         try:
             res = cv2.matchTemplate(
                 img_src, img_template, cv2.TM_CCOEFF_NORMED)
